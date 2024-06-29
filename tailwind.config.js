@@ -40,6 +40,7 @@ module.exports = {
         lighterGreen: "#f3fcf2",
         greenShade: "#1BBF5C",
         gray: "#9499A1",
+        lightGray: "#f7fafb",
       },
     },
   },

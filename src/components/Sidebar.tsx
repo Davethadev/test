@@ -42,7 +42,9 @@ const Sidebar = () => {
               }
               key={index}
             >
-              <div className="flex items-center gap-4 hover:bg-white text-grey hover:text-primary px-4 py-2 rounded-lg w-[80%] mx-auto">
+              <div
+                className={`flex items-center gap-4 hover:bg-white text-grey hover:text-primary px-4 py-2 rounded-lg w-[80%] mx-auto `}
+              >
                 <span className="text-xl text-grey">
                   <img src={icon} alt="" />
                 </span>

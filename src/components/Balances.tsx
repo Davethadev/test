@@ -1,17 +1,38 @@
+import { useState } from "react";
 import { balancesData } from "@/constants/balances";
+import { Skeleton } from "./ui/skeleton";
 
 const Balances = () => {
+  const [isShowBalance, setIsShowBalance] = useState(true);
+  const [isRefreshing, setIsRefreshing] = useState(false);
+
+  const onRefresh = async () => {
+    try {
+      setIsRefreshing(true);
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+    } catch (error) {
+    } finally {
+      setIsRefreshing(false);
+    }
+  };
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 pt-5">
       <div className="relative">
         <div className="absolute flex items-center justify-between w-full top-[-36px]">
           <div className="flex items-center gap-1">
             <small className="raleway-regular">My Balances</small>
-            <span>
-              <img src="./eye.svg" alt="" />
+            <span
+              onClick={() => setIsShowBalance(!isShowBalance)}
+              className="hover:cursor-pointer"
+            >
+              <img src={isShowBalance ? "./eye.svg" : "./eye-off.svg"} alt="" />
             </span>
           </div>
-          <span className="bg-grey h-6 w-6 rounded-full flex justify-center items-center">
+          <span
+            onClick={onRefresh}
+            className="bg-lightGray h-6 w-6 rounded-full flex justify-center items-center hover:cursor-pointer"
+          >
             <img src="./refresh.svg" alt="" />
           </span>
         </div>
@@ -28,11 +49,25 @@ const Balances = () => {
                 <img src="./nigeria.svg" alt="" />
               </span>
             </div>
-            <p className="text-2xl text-white open-sans-bold">₦9,846.18</p>
+            <p className="text-2xl text-white open-sans-bold">
+              {isRefreshing ? (
+                <Skeleton className="w-1/2 h-9" />
+              ) : isShowBalance ? (
+                "₦9,846.18"
+              ) : (
+                "*****"
+              )}
+            </p>
             <div className="w-3/4 flex items-center justify-between">
-              <small className="open-sans-bold text-white">
+              <small className="open-sans-bold text-white flex items-center gap-1 w-1/2">
                 <span className="text-grey open-sans-normal">Ledger:</span>{" "}
-                ₦9,846.18
+                {isRefreshing ? (
+                  <Skeleton className="w-full h-2" />
+                ) : isShowBalance ? (
+                  "₦9,846.18"
+                ) : (
+                  "*****"
+                )}
               </small>
               <small className="open-sans-bold text-white">
                 <span className="text-grey open-sans-normal">Locked:</span> ₦
@@ -58,7 +93,15 @@ const Balances = () => {
               </span>
             </div>
             <small className="open-sans-normal">{name}</small>
-            <p className="text-2xl open-sans-bold">₦{amount}</p>
+            <p className="text-2xl open-sans-bold">
+              {isRefreshing ? (
+                <Skeleton className="w-1/2 h-9" />
+              ) : isShowBalance ? (
+                `₦${amount}`
+              ) : (
+                "*****"
+              )}
+            </p>
             <span
               className={`open-sans-normal ${
                 index === 0 ? "bg-pink" : "bg-lighterGreen"
