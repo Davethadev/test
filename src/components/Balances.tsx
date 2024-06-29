@@ -2,9 +2,9 @@ import { balancesData } from "@/constants/balances";
 
 const Balances = () => {
   return (
-    <div className="grid grid-cols-3 gap-4 pt-5">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 pt-5">
       <div className="relative">
-        <div className="absolute flex items-center justify-between w-full top-[-20px]">
+        <div className="absolute flex items-center justify-between w-full top-[-36px]">
           <div className="flex items-center gap-1">
             <small className="raleway-regular">My Balances</small>
             <span>
@@ -15,33 +15,38 @@ const Balances = () => {
             <img src="./refresh.svg" alt="" />
           </span>
         </div>
-        <article className="rounded-xl h-44 bg-primary p-4 mt-4 space-y-6">
-          <div className="flex items-center justify-between">
-            <small className="open-sans-normal text-white">
-              Available Balance
-            </small>
-            <span>
-              <img src="./nigeria.svg" alt="" />
-            </span>
-          </div>
-          <p className="text-2xl text-white open-sans-bold">₦9,846.18</p>
-          <div className="w-3/4 flex items-center justify-between">
-            <small className="open-sans-bold text-white">
-              <span className="text-grey open-sans-normal">Ledger:</span>{" "}
-              ₦9,846.18
-            </small>
-            <small className="open-sans-bold text-white">
-              <span className="text-grey open-sans-normal">Locked:</span> ₦
-            </small>
-          </div>
-        </article>
+        <div className="relative overflow-hidden rounded-xl h-44 bg-primary">
+          <div className="arrow-one"></div>
+          <div className="arrow-two"></div>
+          <div className="arrow-three"></div>
+          <article className="p-4 space-y-6">
+            <div className="flex items-center justify-between">
+              <small className="open-sans-normal text-white">
+                Available Balance
+              </small>
+              <span>
+                <img src="./nigeria.svg" alt="" />
+              </span>
+            </div>
+            <p className="text-2xl text-white open-sans-bold">₦9,846.18</p>
+            <div className="w-3/4 flex items-center justify-between">
+              <small className="open-sans-bold text-white">
+                <span className="text-grey open-sans-normal">Ledger:</span>{" "}
+                ₦9,846.18
+              </small>
+              <small className="open-sans-bold text-white">
+                <span className="text-grey open-sans-normal">Locked:</span> ₦
+              </small>
+            </div>
+          </article>
+        </div>
       </div>
       {balancesData.map((balance, index) => {
         const { icon, name, amount, percentage } = balance;
         return (
           <article
             key={index}
-            className="rounded-xl h-44 bg-white p-4 mt-4 space-y-4"
+            className="rounded-xl h-44 bg-white p-4 space-y-4"
           >
             <div className="flex justify-end w-full">
               <span
@@ -54,7 +59,13 @@ const Balances = () => {
             </div>
             <small className="open-sans-normal">{name}</small>
             <p className="text-2xl open-sans-bold">₦{amount}</p>
-            <span className="open-sans-normal bg-pink w-16 h-4 px-2 text-red-500 text-xs rounded-md block">
+            <span
+              className={`open-sans-normal ${
+                index === 0 ? "bg-pink" : "bg-lighterGreen"
+              } w-16 h-5 flex justify-center items-center px-2 ${
+                index === 0 ? "text-red-500" : "text-greenShade"
+              } text-xs rounded-md block`}
+            >
               {percentage}
             </span>
           </article>

@@ -3,7 +3,7 @@ import TotalActiveEmployees from "@/components/TotalActiveEmployees";
 
 const Dashboard = () => {
   return (
-    <div className="px-4 pt-6 bg-lightGrey">
+    <div className="px-4 pt-6 bg-lightGrey h-screen overflow-hidden overflow-y-auto">
       <p className="open-sans-normal text-2xl">
         Welcome back,{" "}
         <span className="text-4xl open-sans-bold text-primary">

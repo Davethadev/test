@@ -92,11 +92,11 @@ const TotalActiveEmployees = () => {
                     </DropdownMenuTrigger>
                     <DropdownMenuContent className="p-3 w-[150px]">
                       <div className="space-y-2 w-[90%] mx-auto">
-                        <button className="inter-normal text-black text-sm text-left w-full">
+                        <button className="poppins-regular text-black text-sm text-left w-full">
                           Edit
                         </button>
                         <div className="w-full h-[1px] bg-[#C3C3C3]"></div>
-                        <button className="inter-normal text-[#AE1E1E] text-sm text-left w-full">
+                        <button className="poppins-regular text-[#AE1E1E] text-sm text-left w-full">
                           Delete
                         </button>
                       </div>

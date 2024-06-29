@@ -11,7 +11,7 @@ const Sidebar = () => {
   };
 
   return (
-    <aside className="w-1/6 bg-primary py-6 sidebar">
+    <aside className="w-1/6 bg-primary py-6 sidebar hidden xl:block">
       <div className="px-6">
         <img src="../logo.svg" alt="" />
       </div>
