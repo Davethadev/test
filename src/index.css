@@ -6,6 +6,10 @@
 @tailwind components;
 @tailwind utilities;
 
+/* * {
+  border: 1px solid aqua;
+} */
+
 .open-sans-normal {
   font-family: "Open Sans", sans-serif;
   font-optical-sizing: auto;
@@ -59,4 +63,20 @@
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
+}
+
+.sidebar {
+  background-image: url("../bg-pattern-sidebar.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.sidebar a.active div {
+  background-color: white;
+  border-radius: 8px;
+}
+
+.sidebar a.active div {
+  color: #164988;
 }

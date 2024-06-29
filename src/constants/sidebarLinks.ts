@@ -1,30 +1,30 @@
 export const sidebarLinks = [
   {
-    icon: "./layout-dashboard.svg",
+    icon: "../layout-dashboard.svg",
     name: "Dashboard",
   },
   {
-    icon: "./business.svg",
-    name: "Your Business ",
+    icon: "../business.svg",
+    name: "Your Business",
   },
   {
-    icon: "./exchange.svg",
+    icon: "../exchange.svg",
     name: "Disbursement",
   },
   {
-    icon: "./collections.svg",
+    icon: "../collections.svg",
     name: "Collections",
   },
   {
-    icon: "./commerce.svg",
+    icon: "../commerce.svg",
     name: "E-commerce",
   },
   {
-    icon: "./loan.svg",
+    icon: "../loan.svg",
     name: "Loan",
   },
   {
-    icon: "./settings.svg",
+    icon: "../settings.svg",
     name: "Settings",
   }
 ];

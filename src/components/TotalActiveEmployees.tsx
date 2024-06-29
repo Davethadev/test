@@ -61,7 +61,7 @@ const TotalActiveEmployees = () => {
               document_status,
             } = employee;
             return (
-              <TableRow>
+              <TableRow key={serial_no}>
                 <TableCell className="poppins-regular text-black">
                   {serial_no}
                 </TableCell>
