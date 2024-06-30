@@ -75,19 +75,49 @@
 .sidebar a.active div {
   background-color: white;
   border-radius: 8px;
-}
-
-.sidebar a.active div {
   color: #164988;
 }
 
-/* .arrow-one {
-  position: absolute;
-  top: 0;
-  right: -20px;
-  height: 100%;
-  width: 30%;
+.triangle-one {
+  --r: 60px;
+
+  aspect-ratio: cos(30deg);
+  -webkit-mask: linear-gradient(90deg, #0000 calc(3 * var(--r) / 2), #000 0),
+    radial-gradient(var(--r) at calc(2 * var(--r)) 50%, #000 98%, #0000 101%);
+  clip-path: polygon(0 50%, 100% 100%, 100% 0);
   background-color: #6083ad;
+  position: absolute;
   z-index: 3;
-  border-radius: 100% 0% 1% 99% / 50% 50% 50% 50%;
-} */
+  right: 0;
+  height: 100%;
+}
+
+.triangle-two {
+  --r: 55px;
+
+  aspect-ratio: cos(30deg);
+  -webkit-mask: linear-gradient(90deg, #0000 calc(3 * var(--r) / 2), #000 0),
+    radial-gradient(var(--r) at calc(2 * var(--r)) 50%, #000 98%, #0000 101%);
+  clip-path: polygon(0 50%, 100% 100%, 100% 0);
+  background-color: #466fa0;
+  position: absolute;
+  z-index: 2;
+  top: -50%;
+  right: -25%;
+  height: 200%;
+}
+
+.triangle-three {
+  --r: 50px;
+
+  aspect-ratio: cos(30deg);
+  -webkit-mask: linear-gradient(90deg, #0000 calc(3 * var(--r) / 2), #000 0),
+    radial-gradient(var(--r) at calc(2 * var(--r)) 50%, #000 98%, #0000 101%);
+  clip-path: polygon(0 50%, 100% 100%, 100% 0);
+  background-color: #325f96;
+  position: absolute;
+  z-index: 1;
+  top: -100%;
+  right: -50%;
+  height: 300%;
+}

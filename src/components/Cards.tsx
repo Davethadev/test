@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { balancesData } from "@/constants/balances";
+import { cardsData } from "@/constants/cards";
 import { Skeleton } from "./ui/skeleton";
 
-const Balances = () => {
+const Cards = () => {
   const [isShowBalance, setIsShowBalance] = useState(true);
   const [isRefreshing, setIsRefreshing] = useState(false);
 
@@ -17,9 +17,9 @@ const Balances = () => {
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 pt-5">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 pt-5">
       <div className="relative">
-        <div className="absolute flex items-center justify-between w-full top-[-36px]">
+        <div className="absolute flex items-center justify-between w-full -top-9">
           <div className="flex items-center gap-1">
             <small className="raleway-regular">My Balances</small>
             <span
@@ -36,11 +36,11 @@ const Balances = () => {
             <img src="./refresh.svg" alt="" />
           </span>
         </div>
-        <div className="relative overflow-hidden rounded-xl h-44 bg-primary">
-          <div className="arrow-one"></div>
-          <div className="arrow-two"></div>
-          <div className="arrow-three"></div>
-          <article className="p-4 space-y-6">
+        <div className="relative overflow-hidden rounded-xl h-44 bg-primary hover:cursor-pointer hover:-translate-y-3 transition-all ease-in-out">
+          <div className="triangle-one"></div>
+          <div className="triangle-two"></div>
+          <div className="triangle-three"></div>
+          <article className="p-4 space-y-6 absolute z-40 w-full">
             <div className="flex items-center justify-between">
               <small className="open-sans-normal text-white">
                 Available Balance
@@ -49,7 +49,7 @@ const Balances = () => {
                 <img src="./nigeria.svg" alt="" />
               </span>
             </div>
-            <p className="text-2xl text-white open-sans-bold">
+            <div className="text-2xl text-white open-sans-bold">
               {isRefreshing ? (
                 <Skeleton className="w-1/2 h-9" />
               ) : isShowBalance ? (
@@ -57,10 +57,10 @@ const Balances = () => {
               ) : (
                 "*****"
               )}
-            </p>
+            </div>
             <div className="w-3/4 flex items-center justify-between">
-              <small className="open-sans-bold text-white flex items-center gap-1 w-1/2">
-                <span className="text-grey open-sans-normal">Ledger:</span>{" "}
+              <div className="open-sans-bold text-white text-xs flex items-center gap-1 w-1/2">
+                <span className="open-sans-normal">Ledger:</span>{" "}
                 {isRefreshing ? (
                   <Skeleton className="w-full h-2" />
                 ) : isShowBalance ? (
@@ -68,20 +68,20 @@ const Balances = () => {
                 ) : (
                   "*****"
                 )}
-              </small>
-              <small className="open-sans-bold text-white">
-                <span className="text-grey open-sans-normal">Locked:</span> ₦
+              </div>
+              <small className="open-sans-bold text-white text-xs">
+                <span className="open-sans-normal">Locked:</span> ₦
               </small>
             </div>
           </article>
         </div>
       </div>
-      {balancesData.map((balance, index) => {
-        const { icon, name, amount, percentage } = balance;
+      {cardsData.map((card, index) => {
+        const { icon, name, amount, percentage } = card;
         return (
           <article
             key={index}
-            className="rounded-xl h-44 bg-white p-4 space-y-4"
+            className="rounded-xl h-44 bg-white p-4 space-y-4 hover:cursor-pointer hover:-translate-y-3 transition-all ease-in-out"
           >
             <div className="flex justify-end w-full">
               <span
@@ -93,7 +93,7 @@ const Balances = () => {
               </span>
             </div>
             <small className="open-sans-normal">{name}</small>
-            <p className="text-2xl open-sans-bold">
+            <div className="text-2xl open-sans-bold">
               {isRefreshing ? (
                 <Skeleton className="w-1/2 h-9" />
               ) : isShowBalance ? (
@@ -101,7 +101,7 @@ const Balances = () => {
               ) : (
                 "*****"
               )}
-            </p>
+            </div>
             <span
               className={`open-sans-normal ${
                 index === 0 ? "bg-pink" : "bg-lighterGreen"
@@ -118,4 +118,4 @@ const Balances = () => {
   );
 };
 
-export default Balances;
+export default Cards;

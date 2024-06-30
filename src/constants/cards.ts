@@ -1,4 +1,4 @@
-export const balancesData = [
+export const cardsData = [
     {
         name: "Total Disbursement ",
         amount: "-50,000.00",

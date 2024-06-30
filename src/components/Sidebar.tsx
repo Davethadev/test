@@ -11,7 +11,7 @@ const Sidebar = () => {
   };
 
   return (
-    <aside className="w-1/6 bg-primary py-6 sidebar hidden xl:block">
+    <aside className="w-1/6 h-screen overflow-hidden overflow-y-auto bg-primary py-6 sidebar hidden xl:block">
       <div className="px-6">
         <img src="../logo.svg" alt="" />
       </div>
@@ -38,12 +38,16 @@ const Sidebar = () => {
                   : "/"
               }
               className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "active" : ""
+                isPending
+                  ? "pending"
+                  : isActive
+                  ? "active border-r-4 border-white h-full transition-all ease-in-out"
+                  : ""
               }
               key={index}
             >
               <div
-                className={`flex items-center gap-4 hover:bg-white text-grey hover:text-primary px-4 py-2 rounded-lg w-[80%] mx-auto `}
+                className={`flex items-center gap-4 hover:bg-white text-grey hover:text-primary px-4 py-2 rounded-lg w-[90%] mx-auto hover:translate-x-1 transition-all ease-in-out`}
               >
                 <span className="text-xl text-grey">
                   <img src={icon} alt="" />
