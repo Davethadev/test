@@ -60,7 +60,7 @@ const Sidebar = () => {
       </div>
       <div
         onClick={handleLogout}
-        className="flex items-center gap-4 hover:bg-white text-grey hover:text-primary hover:cursor-pointer px-4 py-2 rounded-lg w-[80%] mx-auto mt-12"
+        className="flex items-center gap-4 hover:bg-white text-grey hover:text-primary hover:cursor-pointer px-4 py-2 rounded-lg w-[90%] mx-auto mt-12"
       >
         <span className="text-xl text-grey">
           <img src="../power-off.svg" alt="" />
