@@ -94,7 +94,7 @@ const TotalActiveEmployees = () => {
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
-        <span className="absolute left-4 top-2 md:top-2.5">
+        <span className="absolute left-4 top-2.5">
           <img src="./search.svg" alt="" />
         </span>
       </div>
